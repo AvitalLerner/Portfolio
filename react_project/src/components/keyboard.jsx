@@ -3,15 +3,19 @@ import React, { useState } from 'react';
 import './keyboard.css';
 import Key from './key';
 import Screen from './screen';
+import Toolbar from './toolbar';
 
 
 export default function Keyboard() {
 
 
-	const [inputText, setInputText] = useState('');
+	const [styledText, setStyledText] = useState([]);
+	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', size: '16px' });
+
+	// const [inputText, setInputText] = useState('');
 	const [keyboardState, setKeyboardState] = useState('lowerCase');
-	const [colorText, setColor] = useState('Black');
-	const [fontText, setFont] = useState('Arial');
+	// const [colorText, setColor] = useState('Black');
+	// const [fontText, setFont] = useState('Arial');
 
 	const handleKeyClick = (key) => {
 
@@ -39,16 +43,13 @@ export default function Keyboard() {
 	}
 
 	const handleDeleteKey = () => {
-		let updatedText = inputText.slice(0, -1);
-		setInputText(updatedText);
+		let updatedText = styledText.slice(0, -1);
+		setStyledText(updatedText);
 	}
 	const handleEnterKey = () => {
-		let updatedText = inputText + '\n';
-		console.log('Enter');
-		console.log(updatedText);
-		setInputText(updatedText);
-
-	}
+		let newStyledText = [...styledText, { text: '\n', style: currentStyle }];
+		setStyledText(newStyledText);
+	};
 
 	const handleShiftKey = () => {
 
@@ -60,41 +61,55 @@ export default function Keyboard() {
 			updatedState = 'manyApperCase';
 		}
 		else// if (updatedState === 'manyApperCase') 
-			{
+		{
 			updatedState = 'lowerCase';
 		}
 
 		setKeyboardState(updatedState);
 	}
 
+	const applyGlobalStyleChange = (property, value) => {
+		setCurrentStyle(prevStyle => ({
+			...prevStyle,
+			[property]: value
+		}));
+	};
+	
+
 	const handleSpaceKey = () => {
-		let updatedText = inputText + ' ';
-		setInputText(updatedText);
-	}
+		let newStyledText = [...styledText, { text: ' ', style: currentStyle }];
+		setStyledText(newStyledText);
+	};
+
 	const handleRegularKey = (key) => {
-		let updatedText = inputText + key;
-		setInputText(updatedText);
-		if(keyboardState ==='oneUpperCase'){
+		let newStyledText = [...styledText, { text: key, style: currentStyle }];
+		setStyledText(newStyledText);
+		if (keyboardState === 'oneUpperCase') {
 			setKeyboardState('lowerCase');
 		}
 	};
 
-	const handleLanguageChange = (e) => {
-		if (e.target.value === 'english') {
+	const handleLanguageChange = (language) => {
+		if (language === 'english') {
 			setKeyboardState('lowerCase');
+		} else {
+			setKeyboardState(language);
 		}
-		else {
-			setKeyboardState(e.target.value);
-		}
-	}
+	};
+	
 
-	const handleColorChange = (e) => {
-		setColor(e.target.value);
-	}
+	// const handleColorChange = (e) => {
+	// 	setCurrentStyle(prevStyle => ({ ...prevStyle, color: e.target.value }));
+	// };
 
-	const hendleFontChange = (e) => {
-		setFont(e.target.value);
-	}
+	// const handleFontChange = (e) => {
+	// 	setCurrentStyle(prevStyle => ({ ...prevStyle, font: e.target.value }));
+	// };
+
+	// const handleSizeChange = (e) => {
+	// 	setCurrentStyle(prevStyle => ({ ...prevStyle, fontSize: e.target.value }));
+	// };
+
 
 	const handleAddSymbol = () => {
 		let updatedState = keyboardState;
@@ -121,15 +136,11 @@ export default function Keyboard() {
 		setInputText('');
 	}
 	const specialKeys = [
-		'Ctrl', 'Space', 'Shift', 'Enter', 'delete'
+		'Space', 'Shift', 'Enter', 'delete'
 	];
 
 	const numbers = [
 		'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
-	];
-
-	const tools = [
-		'language', 'color', 'font', 'size', 'bold', 'italic', 'underline', 'align', 'list', 'undo', 'redo'
 	];
 
 	const Emoji = [
@@ -146,11 +157,8 @@ export default function Keyboard() {
 			'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
 			'z', 'x', 'c', 'v', 'b', 'n', 'm'
 		];
-		const upperCase = [
-			'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-			'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
-			'Z', 'X', 'C', 'V', 'B', 'N', 'M'
-		];
+		const upperCase = lowerCase.map(letter => letter.toUpperCase());
+
 		const hebrew = [
 			'ק', 'ו', 'א', 'ר', 'ת', 'י', 'ו', 'ן', 'ם', 'פ',
 			'ש', 'ס', 'ד', 'ג', 'כ', 'ע', 'י', 'ח', 'ל',
@@ -176,8 +184,6 @@ export default function Keyboard() {
 				return symbols;
 			case 'Emoji':
 				return Emoji;
-			// case '':
-			// 	return upperCase;
 
 			default:
 				return lowerCase;
@@ -190,7 +196,7 @@ export default function Keyboard() {
 	return (
 
 		<div className="keyboard">
-			<Screen inputText={inputText} colorText={colorText} fontText={fontText}/>
+			<Screen styledText={styledText} />
 
 			<div className="keyboardcontainer">
 				<div className="container">
@@ -222,44 +228,24 @@ export default function Keyboard() {
 						}
 					</div>
 
-					<div className="row tools">
-
-						<div className="dropdown-content">
-							<select value="language" onChange={handleLanguageChange}>
-								<option value="English">English</option>
-								<option value="hebrew">hebrew</option>
-								<option value="French">French</option>
-								<option value="German">German</option>
-							</select>
-
-							<select value="color" onChange={handleColorChange}>
-								<option value="Black">Black</option>
-								<option value="Red">Red</option>
-								<option value="Blue">Blue</option>
-								<option value="Green">Green</option>
-							</select>
-
-							<select value="font" onChange={hendleFontChange}>
-								<option value="Arial">Arial</option>
-								<option value="Times New Roman">Times New Roman</option>
-								<option value="Courier New">Courier New</option>
-								<option value="Verdana">Verdana</option>
-							</select>
-
-							<button onClick={handleAddSymbol}>Add Symbol</button>
-							<button onClick={handleEmojiSymbol}>Emoji</button>
-							{/* <button onClick={}>A</button> */}
-							<button onClick={handleClearSymbol}>clear</button>
-
-
-
-						</div>
-
-					</div>
+					<Toolbar
+						currentStyle={currentStyle}
+						setCurrentStyle={setCurrentStyle}
+						// applyGlobalStyleChange={applyGlobalStyleChange}
+						handleLanguageChange={handleLanguageChange}
+						handleAddSymbol={handleAddSymbol}
+						handleEmojiSymbol={handleEmojiSymbol}
+						handleClearSymbol={handleClearSymbol}
+						applyGlobalStyleChange={applyGlobalStyleChange}
+					/>
 
 				</div>
+
 			</div>
+
 		</div>
+			
+	
 	)
 
 }

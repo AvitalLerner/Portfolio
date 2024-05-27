@@ -1,10 +1,17 @@
 import React from "react";
 import "./screen.css";
 
-export default function Screen({ inputText, colorText, fontText}) {
-  return (
-    <div className="screen">
-      <p style={{color: colorText, fontFamily: fontText}}>{inputText}</p>
-    </div>
-  );
+export default function Screen({ styledText }) {
+    return (
+        <div className="screen">
+            {styledText.map((part, index) => (
+                <span
+                    key={index}
+                    style={{ color: part.style.color, fontFamily: part.style.font }}
+                >
+                    {part.text}
+                </span>
+            ))}
+        </div>
+    );
 }

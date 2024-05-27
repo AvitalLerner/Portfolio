@@ -55,7 +55,7 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
             </select>
 
             <input type="color" value={currentStyle.color} onChange={handleColorChange} />
-            <input type="number" value={parseInt(currentStyle.fontSize)} min="8" max="30" onChange={handleSizeChange} />
+            {/* <input type="number" value={parseInt(currentStyle.fontSize)} min="8" max="30" onChange={handleSizeChange} /> */}
 
 
             <button onClick={handleAddSymbol}>Add Symbol</button>
@@ -68,6 +68,7 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
             <button onClick={() => applyGlobalStyleChange('color', currentStyle.color)}>Apply Color</button>
             <button onClick={() => applyGlobalStyleChange('font', currentStyle.font)}>Apply Font</button>
             <button onClick={() => applyGlobalStyleChange('fontSize', currentStyle.fontSize)}>Apply Font Size</button>
+            <button onClick={handleToggleCase}>Toggle Case</button> {/* Add the toggle case button */}
             <button >undo</button>
             
 

@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <h1>React Keyboard App</h1>
+      {/* <h1>React Keyboard App</h1> */}
       {
        <Keyboard /> 
         

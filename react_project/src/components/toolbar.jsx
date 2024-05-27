@@ -1,6 +1,7 @@
 import React from 'react';
+import './toolbar.css';
 
-export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageChange, handleAddSymbol, handleEmojiSymbol, handleClearSymbol, applyGlobalStyleChange}) {
+export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageChange, handleAddSymbol, handleEmojiSymbol, handleClearSymbol, applyGlobalStyleChange, keyboardState}) {
     
 
     
@@ -57,19 +58,24 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
             <input type="color" value={currentStyle.color} onChange={handleColorChange} />
             {/* <input type="number" value={parseInt(currentStyle.fontSize)} min="8" max="30" onChange={handleSizeChange} /> */}
 
+            <button onClick={() => {applyGlobalStyleChange('color', currentStyle.color); applyGlobalStyleChange('font', currentStyle.font); applyGlobalStyleChange('fontSize', currentStyle.fontSize);}}>החל על הכל</button>
 
-            <button onClick={handleAddSymbol}>Add Symbol</button>
+            <button onClick={handleAddSymbol}>{keyboardState==='symbols'? 'abc': '!#1'}</button>
 
-            <button onClick={handleEmojiSymbol}>Emoji</button>
+            <button onClick={handleEmojiSymbol}>{keyboardState==='Emoji'? 'abc': '😀'}</button>
 
-            <button onClick={handleClearSymbol}>clear</button>
+            <button onClick={handleClearSymbol}>
+                <img id='trash' src="./img/trash.png" alt="נקה" />
+            </button>
             {/* button to general changes */}
-            
-            <button onClick={() => applyGlobalStyleChange('color', currentStyle.color)}>Apply Color</button>
+
+            {/* <button onClick={() => applyGlobalStyleChange('color', currentStyle.color)}>Apply Color</button>
             <button onClick={() => applyGlobalStyleChange('font', currentStyle.font)}>Apply Font</button>
-            <button onClick={() => applyGlobalStyleChange('fontSize', currentStyle.fontSize)}>Apply Font Size</button>
-            <button onClick={handleToggleCase}>Toggle Case</button> {/* Add the toggle case button */}
-            <button >undo</button>
+            <button onClick={() => applyGlobalStyleChange('fontSize', currentStyle.fontSize)}>Apply Font Size</button> */}
+            {/* <button onClick={handleToggleCase}>Toggle Case</button> Add the toggle case button */}
+            <button >
+                <img id='undo' src="./img/undo.png" alt="undo" />
+            </button>
             
 
 

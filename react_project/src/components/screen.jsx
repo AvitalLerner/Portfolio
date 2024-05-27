@@ -1,9 +1,9 @@
 import React from "react";
 import "./screen.css";
 
-export default function Screen({ styledText }) {
+export default function Screen({ styledText, myDir }) {
     return (
-        <div className="screen">
+        <div dir={myDir} className="screen">
             {styledText.map((part, index) => (
                 <span
                     key={index}

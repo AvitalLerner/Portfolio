@@ -10,7 +10,8 @@ export default function Keyboard() {
 
 
 	const [styledText, setStyledText] = useState([]);
-	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', size: '16px' });
+	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', size: '24px' });
+
 
 	// const [inputText, setInputText] = useState('');
 	const [keyboardState, setKeyboardState] = useState('lowerCase');
@@ -20,13 +21,13 @@ export default function Keyboard() {
 	const handleKeyClick = (key) => {
 
 		switch (key) {
-			case 'Shift':
+			case 'shift':
 				handleShiftKey();
 				break;
-			case 'Space':
+			case 'space':
 				handleSpaceKey();
 				break;
-			case 'Enter':
+			case 'enter':
 				handleEnterKey();
 				break;
 			case 'delete':
@@ -136,7 +137,7 @@ export default function Keyboard() {
 		setInputText('');
 	}
 	const specialKeys = [
-		'Space', 'Shift', 'Enter', 'delete'
+		'shift', 'space', 'enter', 'delete'
 	];
 
 	const numbers = [
@@ -196,9 +197,22 @@ export default function Keyboard() {
 	return (
 
 		<div className="keyboard">
-			<Screen styledText={styledText} />
-
+			<Toolbar
+						currentStyle={currentStyle}
+						setCurrentStyle={setCurrentStyle}
+						// applyGlobalStyleChange={applyGlobalStyleChange}
+						handleLanguageChange={handleLanguageChange}
+						handleAddSymbol={handleAddSymbol}
+						handleEmojiSymbol={handleEmojiSymbol}
+						handleClearSymbol={handleClearSymbol}
+						applyGlobalStyleChange={applyGlobalStyleChange}
+						keyboardState = {keyboardState}
+					/>
 			<div className="keyboardcontainer">
+			<Screen styledText={styledText} myDir={keyboardState === 'hebrew'? 'rtl': 'ltr'} />
+
+			
+
 				<div className="container">
 					<div className="row numbers">
 						{
@@ -228,17 +242,7 @@ export default function Keyboard() {
 						}
 					</div>
 
-					<Toolbar
-						currentStyle={currentStyle}
-						setCurrentStyle={setCurrentStyle}
-						// applyGlobalStyleChange={applyGlobalStyleChange}
-						handleLanguageChange={handleLanguageChange}
-						handleAddSymbol={handleAddSymbol}
-						handleEmojiSymbol={handleEmojiSymbol}
-						handleClearSymbol={handleClearSymbol}
-						applyGlobalStyleChange={applyGlobalStyleChange}
-					/>
-
+					
 				</div>
 
 			</div>

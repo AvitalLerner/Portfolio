@@ -10,8 +10,8 @@ export default function Keyboard() {
 
 
 	const [styledText, setStyledText] = useState([]);
-	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', size: '24px' });
-
+	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', size: '16px' });
+	const [language, setLanguage] = useState('english');
 
 	// const [inputText, setInputText] = useState('');
 	const [keyboardState, setKeyboardState] = useState('lowerCase');
@@ -55,26 +55,29 @@ export default function Keyboard() {
 	const handleShiftKey = () => {
 
 		var updatedState = keyboardState;
-		if (updatedState === 'lowerCase') {
-			updatedState = 'oneUpperCase';
+		switch (updatedState) {
+			case 'lowerCase':
+				updatedState = 'oneUpperCase';
+				break;
+			case 'oneUpperCase':
+				updatedState = 'manyApperCase';
+				break;
+			case 'manyApperCase':
+				updatedState = 'lowerCase';
+				break;
+			default:
+				break;
 		}
-		else if (updatedState === 'oneUpperCase') {
-			updatedState = 'manyApperCase';
-		}
-		else// if (updatedState === 'manyApperCase') 
-		{
-			updatedState = 'lowerCase';
-		}
-
 		setKeyboardState(updatedState);
 	}
 
 	const applyGlobalStyleChange = (property, value) => {
-		setCurrentStyle(prevStyle => ({
-			...prevStyle,
-			[property]: value
-		}));
-	};
+        const updatedText = styledText.map(part => ({
+            ...part,
+            style: { ...part.style, [property]: value }
+        }));
+        setStyledText(updatedText);
+    };
 	
 
 	const handleSpaceKey = () => {
@@ -95,6 +98,7 @@ export default function Keyboard() {
 			setKeyboardState('lowerCase');
 		} else {
 			setKeyboardState(language);
+			setLanguage(language);
 		}
 	};
 	
@@ -115,7 +119,17 @@ export default function Keyboard() {
 	const handleAddSymbol = () => {
 		let updatedState = keyboardState;
 		if (updatedState === 'symbols') {
-			updatedState = 'lowerCase';
+			switch (language) {
+				case 'english':
+					updatedState = 'lowerCase';
+					break;
+				case 'hebrew':
+					updatedState = 'hebrew';
+					break;
+				default:
+					updatedState = 'lowerCase';
+					break;
+			}
 		}
 		else {
 			updatedState = 'symbols';
@@ -134,7 +148,7 @@ export default function Keyboard() {
 		setKeyboardState(updatedState);
 	}
 	const handleClearSymbol = () => {
-		setInputText('');
+		setStyledText([]);
 	}
 	const specialKeys = [
 		'shift', 'space', 'enter', 'delete'

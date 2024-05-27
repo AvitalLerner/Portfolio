@@ -67,15 +67,21 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
             <button onClick={handleClearSymbol}>
                 <img id='trash' src="./img/trash.png" alt="נקה" />
             </button>
+            
             {/* button to general changes */}
+            
+            {/* <button onClick={() => { console.log(currentStyle.color);
+                applyGlobalStyleChange('color', currentStyle.color)}}>Apply Color</button> */}
 
-            {/* <button onClick={() => applyGlobalStyleChange('color', currentStyle.color)}>Apply Color</button>
-            <button onClick={() => applyGlobalStyleChange('font', currentStyle.font)}>Apply Font</button>
+            {/* <button onClick={() => applyGlobalStyleChange('font', currentStyle.font)}>Apply Font</button>
             <button onClick={() => applyGlobalStyleChange('fontSize', currentStyle.fontSize)}>Apply Font Size</button> */}
-            {/* <button onClick={handleToggleCase}>Toggle Case</button> Add the toggle case button */}
+            {/* <button onClick={handleToggleCase}>Toggle Case</button> Add the toggle case button */} 
             <button >
                 <img id='undo' src="./img/undo.png" alt="undo" />
             </button>
+
+            {/* <button onClick={() => applyGlobalStyleChange('fontSize', currentStyle.fontSize)}>Apply Font Size</button> */}
+            {/* <button >Toggle Case</button> */}
             
 
 

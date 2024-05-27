@@ -1,0 +1,83 @@
+
+/* CSS */
+.restart-button {
+    background-color: #2860C6;
+}
+
+.exit-button {
+    background-color: #FB2E4D;
+}
+
+.option-button {
+    margin: 10px;
+  border: 0;
+  border-radius: 56px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Rubik", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  outline: 0;
+  padding: 16px 21px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.option-button:before {
+  background-color: initial;
+  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+  border-radius: 125px;
+  content: "";
+  height: 50%;
+  left: 4%;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  transition: all .3s;
+  width: 92%;
+}
+
+.option-button:hover {
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .option-button {
+    padding: 16px 48px;
+  }
+}
+
+.got-hundred-text1
+{
+    font-family: "Rubik", sans-serif;
+    text-shadow: #cf8a00 0px 0px 3px;
+    font-size: 40px;
+    font-weight: 800;
+    color: #FDAA02;
+    margin-top: 20px;
+}
+
+.got-hundred-text2
+{
+    font-family: "Rubik", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.got-hundred-text2 span
+{
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    background-color: #893275;
+    padding-left: 10px;
+    padding-right: 10px;
+}

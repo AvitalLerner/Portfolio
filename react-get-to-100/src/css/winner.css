@@ -1,0 +1,48 @@
+.winner-container {
+    position: relative; /* Ensures absolute positioning of children */
+    width: 150px;      /* Adjust the width of the container as needed */
+}
+
+.winner-text {
+    position: absolute; /* Positions the text relative to the container */
+    top: 75%;           /* Places the text at the vertical center */
+    left: 0;            /* Aligns the text to the left edge of the container */
+    right: 0;           /* Aligns the text to the right edge of the container */
+    /* transform: translateY(-50%); Centers the text vertically */
+    text-align: center; /* Centers the text horizontally */
+    color: white;       /* Sets the text color */
+    padding: 8px;       /* Adds padding around the text */
+    height: 15%;
+    border-radius: 25px;
+    background-color: #FDAA02;
+    font-size: 170%;
+    font-weight: bold;
+    font-family: "Rubik", sans-serif;
+    padding: 3px 8px 12px 8px;
+}
+
+.winner-img {
+    width: 100%;        /* Ensures the image fills the container width */
+    height: auto;       /* Keeps the aspect ratio */
+    display: block;     /* Fixes spacing issues */
+}
+
+#third {
+    position: absolute;       /* or 'fixed' depending on the context */
+    top: 50%;
+    left: 336px;
+}
+
+#second {
+    position: absolute;       /* or 'fixed' depending on the context */
+    top: 41%;
+    left: -5px;
+}
+
+#first {
+    position: absolute;       /* or 'fixed' depending on the context */
+    top: 0px;
+    left: 165px;
+}
+
+

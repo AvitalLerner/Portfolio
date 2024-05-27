@@ -1,0 +1,97 @@
+.player-slider {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+}
+
+/* button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 100%;
+border: none;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 13px;
+}
+
+button img {
+    height: 80%;
+    object-fit: cover;
+} */
+
+.shrinking {
+    animation: shrink 0.5s ease;
+}
+
+.growing {
+    animation: grow 0.5s ease;
+}
+
+@keyframes shrink {
+    from { opacity: 100%; transform: scale(1); }
+    to { opacity: 30%; transform: scale(0.6);}
+}
+
+@keyframes grow {
+    from { transform: scale(0.6); opacity: 20%; }
+    to { transform: scale(1); opacity: 100%;}
+}
+
+.selected-player {
+    margin: 1%;
+    flex: 0 0 30%;
+    .inner-card
+    {
+        height: 320px;
+        margin-top: -50px;
+        padding-top: 50px;
+        .player-score {
+            font-size: 100px;
+        }
+    }
+    img 
+    {
+        height: 25%;
+    }
+
+}
+
+.side-player {
+    margin-top: 110px;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    flex: 0 0 15%;
+    .inner-card {
+        height: 200px;
+        .player-score {
+            font-size: 55px;
+        }
+    }
+    img
+    {
+        height: 20%;
+    }
+}
+
+.player-slider-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+    
+  }
+  
+  .player-slider {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+  
+
+  

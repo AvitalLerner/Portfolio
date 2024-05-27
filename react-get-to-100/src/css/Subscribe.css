@@ -1,0 +1,96 @@
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width: 500px;
+    height: 560px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.subscribe-background {
+    position: fixed; /* Use fixed to keep it in place even on scroll */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.3); /* Dim the background */
+    align-items: center; /* Align children vertically in the center */
+    justify-content: center; /* Align children horizontally in the center */
+    z-index: 1000; /* High z-index to be on top of other items */
+    font-family: "Rubik", sans-serif;
+
+}
+
+/* .subscribe-button, .add-player-button {
+    width: 150px;
+    height: 37px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: "Rubik", sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid;
+
+} */
+
+/* .subscribe-button:hover, .add-player-button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+} */
+
+.subscribe-button {
+    background-color: #FB2E4D;
+    padding: 15px 20px;
+    border-color: #ff2647;
+}
+
+.subscribe-button:disabled {
+    background-color: #8f8f8fa1;
+    border-color: #38383885;
+}
+
+.add-player-button {
+    background-color: #FDAA02; 
+    padding: 15px 28px;
+
+    border-color: #e49800;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #FDAA02;
+    margin-top: 20px;
+    padding-left: 10px;
+    border-radius: 7px;
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    padding-right: 8px;
+    margin-bottom: 18px;
+}
+
+input:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.subscribe-logo {
+    width: 300px;
+    margin-top: 0px;
+}
+
+.subscribe-select-image
+{
+    font-weight: 700;
+    background-color: #fda90236;
+    width: 200px;
+    border-radius: 10px;
+}

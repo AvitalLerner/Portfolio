@@ -1,0 +1,75 @@
+#player-card {
+    border-radius: 10px;
+    /* margin: 1%; */
+    /* flex: 0 0 18%; Each image takes up 20% of the container width */
+    overflow: hidden;
+    align-items: end;
+    height: 350px;
+}
+
+#player-card img {
+    /* height: 20%; */
+    object-fit: cover;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#player-card:hover {
+    transform: scale(1.07);
+    transition: transform 0.5s ease;
+}
+
+.inner-card
+{
+    margin-top: -20%;
+    border-radius: 20px;
+    background-color: aquamarine;
+    padding-top: 20%;
+
+
+}
+
+.player-name {
+    font-size: 24px;
+    text-wrap: nowrap;
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    text-overflow: ellipsis; /* Use ellipsis for clipped text */
+    overflow: hidden;
+    height: 30px;
+}
+
+.player-score {
+    font-size: 55px;
+    font-weight: 1200px;
+    margin-top: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.player-steps {
+    font-size: 18px;
+    margin-top: 20px;
+    color: white;
+}
+
+/* .shrinking {
+    animation: shrink 0.5s ease;
+}
+
+.growing {
+    animation: grow 0.5s ease;
+}
+
+@keyframes shrink {
+    from { transform: scale(1); }
+    to { transform: scale(0.6); }
+}
+
+@keyframes grow {
+    from { transform: scale(0.6); }
+    to { transform: scale(1.0); }
+} */

@@ -70,7 +70,7 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
 
             <button onClick={() => applyGlobalStyleChange('font', currentStyle.font)}>Apply Font</button>
             <button onClick={() => applyGlobalStyleChange('fontSize', currentStyle.fontSize)}>Apply Font Size</button>
-            {/* <button onClick={handleToggleCase}>Toggle Case</button> Add the toggle case button */}
+            <button >Toggle Case</button>
             <button >undo</button>
             
 

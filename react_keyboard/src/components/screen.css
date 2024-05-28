@@ -1,17 +1,18 @@
 .screen{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
+    text-wrap:wrap; */
     height: 100px;
     background-color: #f5f5f5;
-    white-space: pre-wrap; /* Handle spaces and new lines properly */
+    /* flex-wrap: wrap; */
     overflow-x: auto;
     padding: 10px;
     border-radius: 50px;
+    white-space: normal;
+    text-align: start;
 }
-.screen span {
-     /* Ensure spans are inline */
 
-    display: inline;
-}
+
+
 

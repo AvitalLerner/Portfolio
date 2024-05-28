@@ -93,9 +93,9 @@ export default function Keyboard() {
 				updatedState = 'oneUpperCase';
 				break;
 			case 'oneUpperCase':
-				updatedState = 'manyApperCase';
+				updatedState = 'manyUpperCase';
 				break;
-			case 'manyApperCase':
+			case 'manyUpperCase':
 				updatedState = 'lowerCase';
 				break;
 			default:
@@ -211,7 +211,7 @@ export default function Keyboard() {
 				return lowerCase;
 			case 'oneUpperCase':
 				return upperCase;
-			case 'manyApperCase':
+			case 'manyUpperCase':
 				return upperCase;
 			case 'hebrew':
 				return hebrew;
@@ -267,7 +267,7 @@ export default function Keyboard() {
 					<div className="row acction">
 						{
 							specialKeys.map((key, index) => (
-								<Key key={index} value={key} onClick={() => handleKeyClick(key)} />
+								<Key key={index} value={key} onClick={() => handleKeyClick(key)} keyboardState={keyboardState} />
 							))
 							/* <Key value="shift" onClick={() => handleShiftKey()} />
 							<Key value="enter" onClick={() => handleRegularKey('\n')} />

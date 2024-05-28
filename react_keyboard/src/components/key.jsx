@@ -15,8 +15,8 @@ const Key = ({ value, onClick, keyboardState }) => {
   return (
     <button className="key" id={value} 
     style={{
-      backgroundColor: value === 'shift' && keyboardState === 'manyUpperCase' ? 'blue':
-      value==='shift' && keyboardState==='oneUpperCase'? '#87CEFA':''
+      backgroundColor: value === 'shift' && keyboardState === 'manyUpperCase' ? 'rgb(106, 163, 137)':
+      value==='shift' && keyboardState==='oneUpperCase'? 'rgb(150, 232, 195)':''
     
 }}
     onClick={() => onClick(value)}>

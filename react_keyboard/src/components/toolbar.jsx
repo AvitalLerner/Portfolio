@@ -49,7 +49,15 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
                 <option value="24">24</option>
                 <option value="26">26</option>
                 <option value="28">28</option>
+                <option value="28">30</option>
+                <option value="28">32</option>
                 <option value="36">36</option>
+                <option value="36">40</option>
+                <option value="36">48</option>
+                <option value="36">64</option>
+                <option value="36">78</option>
+
+
             </select>
 
             <input type="color" value={currentStyle.color} onChange={handleColorChange} />

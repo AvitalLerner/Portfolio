@@ -9,7 +9,7 @@ import Toolbar from './toolbar';
 export default function Keyboard() {
 
 	const [styledText, setStyledText] = useState([]);
-	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', fontSize: '16' });
+	const [currentStyle, setCurrentStyle] = useState({ color: 'Black', font: 'Arial', fontSize: '30' });
 	const [language, setLanguage] = useState('english');
 	const [lastAct, setLastAct] = useState({ type: null, content: null });
 	const [keyboardState, setKeyboardState] = useState('lowerCase');
@@ -258,7 +258,7 @@ export default function Keyboard() {
 					<div className="row innerKeybaord">
 						{
 							returnKeyValues().map((keyvalue, index) => (
-								<Key key={index} value={keyvalue} onClick={() => handleRegularKey(keyvalue)} />
+								<Key key={index} value={keyvalue} onClick={() => handleRegularKey(keyvalue)} keyboardState={keyboardState} />
 							))
 						}
 

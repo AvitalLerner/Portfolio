@@ -13,7 +13,7 @@ export default function Screen({ styledText, myDir }) {
                             style={{
                                 color: part.style.color,
                                 fontFamily: part.style.font,
-                                fontSize: part.style.fontSize
+                                fontSize: `${part.style.fontSize}px`
                             }}
                         >
                             {part.text}

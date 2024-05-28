@@ -16,7 +16,7 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
     };
 
     const handleSizeChange = (e) => {
-        const fontSize = `${e.target.value}px`;
+        const fontSize = parseInt(e.target.value);
         setCurrentStyle(prevStyle => ({ ...prevStyle, fontSize }));
     };
 
@@ -47,6 +47,9 @@ export default function Toolbar({ currentStyle, setCurrentStyle, handleLanguageC
                 <option value="20">20</option>
                 <option value="22">22</option>
                 <option value="24">24</option>
+                <option value="26">26</option>
+                <option value="28">28</option>
+                <option value="36">36</option>
             </select>
 
             <input type="color" value={currentStyle.color} onChange={handleColorChange} />

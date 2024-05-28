@@ -34,8 +34,6 @@
     font-size: 1.5rem;
     color: var(--colorShadeA);
     font-weight: 700;
-    text-transform: uppercase;
-    font-family: inherit;
   }
   
   button.key {
